@@ -11,14 +11,9 @@ import '../theme/app_spacing.dart';
 import '../theme/app_text_styles.dart';
 
 class NativeAdWidget extends StatefulWidget {
-  final EdgeInsets margin;
-  final int variantIndex;
+  final bool isSmall;
 
-  const NativeAdWidget({
-    super.key,
-    this.margin = const EdgeInsets.symmetric(vertical: 12),
-    this.variantIndex = 0,
-  });
+  const NativeAdWidget({super.key, this.isSmall = true});
 
   @override
   State<NativeAdWidget> createState() => _NativeAdWidgetState();
@@ -28,6 +23,9 @@ class _NativeAdWidgetState extends State<NativeAdWidget> {
   NativeAd? _native;
   bool _loading = true;
 
+  // Hardcoded default margin since it's no longer passed in
+  final EdgeInsets _margin = const EdgeInsets.symmetric(vertical: 12);
+
   @override
   void initState() {
     super.initState();
@@ -36,7 +34,7 @@ class _NativeAdWidgetState extends State<NativeAdWidget> {
 
   Future<void> _load() async {
     try {
-      final ad = await AdsService.instance.createNativeAd();
+      final ad = await AdsService.instance.createNativeAd(isSmall: widget.isSmall);
       if (!mounted) {
         ad?.dispose();
         return;
@@ -58,29 +56,29 @@ class _NativeAdWidgetState extends State<NativeAdWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (_loading) {
-      return Padding(
-        padding: widget.margin,
-        child: _skeleton(),
-      );
-    }
-    if (_native != null) {
-      // Native ad successfully loaded
-      return Padding(
-        padding: widget.margin,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(R.md),
-          child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: 100.h),
-            child: AdWidget(ad: _native!),
-          ),
-        ),
-      );
-    }
-    // Fallback custom native card
-    return Padding(
-      padding: widget.margin,
-      child: _fallbackCard(),
+    return Container(
+      height: widget.isSmall ? 140 : 380,
+      margin: EdgeInsets.fromLTRB(S.lg, S.xl, S.lg, S.md),
+      child: (_loading)
+          ? Padding(
+              padding: _margin,
+              child: _skeleton(),
+            )
+          : (_native != null)
+              ? Padding(
+                  padding: _margin,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(R.md),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(minHeight: 100.h),
+                      child: AdWidget(ad: _native!),
+                    ),
+                  ),
+                ) // Fallback custom native card
+              : Padding(
+                  padding: _margin,
+                  child: _fallbackCard(),
+                ),
     );
   }
 
@@ -109,7 +107,9 @@ class _NativeAdWidgetState extends State<NativeAdWidget> {
     final cfg = AppConfigStore.instance.appConfig;
     final custom = cfg.custom;
     final nc = cfg.nativeConfig;
-    final i = widget.variantIndex;
+
+    // Hardcoded to 0 since variantIndex is removed
+    const i = 0;
 
     final headline = custom.headline(i);
     final desc = custom.description(i);
@@ -147,16 +147,14 @@ class _NativeAdWidgetState extends State<NativeAdWidget> {
           children: [
             if (img.isNotEmpty)
               ClipRRect(
-                borderRadius:
-                BorderRadius.circular(nc.mediaCornerRadius.r),
+                borderRadius: BorderRadius.circular(nc.mediaCornerRadius.r),
                 child: SizedBox(
                   width: 88.w,
                   height: 88.w,
                   child: Image.network(
                     img,
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) =>
-                        Container(color: AppColors.card2),
+                    errorBuilder: (_, __, ___) => Container(color: AppColors.card2),
                   ),
                 ),
               ),
@@ -168,8 +166,7 @@ class _NativeAdWidgetState extends State<NativeAdWidget> {
                   Row(
                     children: [
                       Container(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 6.w, vertical: 1.h),
+                        padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 1.h),
                         decoration: BoxDecoration(
                           color: badgeBg,
                           borderRadius: BorderRadius.circular(4.r),
@@ -198,18 +195,15 @@ class _NativeAdWidgetState extends State<NativeAdWidget> {
                       desc,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: T.small.copyWith(
-                          fontSize: 11.sp, color: font.withOpacity(0.75)),
+                      style: T.small.copyWith(fontSize: 11.sp, color: font.withOpacity(0.75)),
                     ),
                   ],
                   SizedBox(height: 8.h),
                   Container(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 12.w, vertical: 5.h),
+                    padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
                     decoration: BoxDecoration(
                       color: btnBg,
-                      borderRadius:
-                      BorderRadius.circular(nc.buttonBorderRadius.r),
+                      borderRadius: BorderRadius.circular(nc.buttonBorderRadius.r),
                     ),
                     child: Text(
                       cta,
@@ -238,12 +232,8 @@ class _NativeAdWidgetState extends State<NativeAdWidget> {
 
 /// Alias kept for compatibility.
 class NativeCardAd extends StatelessWidget {
-  final EdgeInsets margin;
-  const NativeCardAd({
-    super.key,
-    this.margin = const EdgeInsets.symmetric(vertical: 12),
-  });
+  const NativeCardAd({super.key});
 
   @override
-  Widget build(BuildContext context) => NativeAdWidget(margin: margin);
+  Widget build(BuildContext context) => const NativeAdWidget();
 }

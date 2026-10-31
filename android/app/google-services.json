@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1069185665644:android:38d6f91f797a3bdf686649",
+        "mobilesdk_app_id": "1:1069185665644:android:9e15cc084ddd867f686649",
         "android_client_info": {
-          "package_name": "com.dhruv.bt_tv"
+          "package_name": "com.nova.filx.movies.tv.as1"
         }
       },
       "oauth_client": [],

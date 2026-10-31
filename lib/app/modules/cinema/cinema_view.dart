@@ -9,6 +9,7 @@ import '../../theme/app_colors.dart';
 import '../../theme/app_radius.dart';
 import '../../theme/app_spacing.dart';
 import '../../theme/app_text_styles.dart';
+import '../../widgets/native_ad_widget.dart' show NativeAdWidget;
 import '../../widgets/poster_card.dart';
 import '../../widgets/section_title.dart';
 import 'cinema_controller.dart';
@@ -39,23 +40,24 @@ class CinemaView extends StatelessWidget {
                       S.lg, S.lg, S.lg, S.md),
                   child: Text('Cinema', style: T.h1),
                 ),
+                const NativeAdWidget(isSmall: true),
 
                 // Featured (now playing #1)
                 if (c.nowPlaying.isNotEmpty)
                   _featured(c.nowPlaying.first),
 
                 if (c.nowPlaying.isNotEmpty) ...[
-                  SectionTitle('Now Playing', showArrow: true),
+                  const SectionTitle('Now Playing', showArrow: true),
                   _hList(c.nowPlaying),
                 ],
 
                 if (c.upcoming.isNotEmpty) ...[
-                  SectionTitle('Coming Soon', showArrow: true),
+                  const SectionTitle('Coming Soon', showArrow: true),
                   _hList(c.upcoming),
                 ],
 
                 if (c.topRated.isNotEmpty) ...[
-                  SectionTitle('Top Rated', showArrow: true),
+                  const SectionTitle('Top Rated', showArrow: true),
                   _hList(c.topRated),
                 ],
 

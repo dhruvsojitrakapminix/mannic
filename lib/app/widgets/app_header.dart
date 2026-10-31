@@ -33,18 +33,18 @@ class AppHeader extends StatelessWidget {
             ),
           ),
           SizedBox(width: S.sm),
-          Text('BitTV', style: T.h2),
+          Text('NoveFlix – Movies, TV, Live', style: T.h2),
           const Spacer(),
           IconButton(
             onPressed: () => Get.toNamed(Routes.FAVORITES),
             icon: Icon(Icons.favorite_border,
                 color: AppColors.primary, size: 22.sp),
           ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.language,
-                color: AppColors.primary, size: 22.sp),
-          ),
+          // IconButton(
+          //   onPressed: () {},
+          //   icon: Icon(Icons.language,
+          //       color: AppColors.primary, size: 22.sp),
+          // ),
           IconButton(
             onPressed: () => Get.toNamed(Routes.PROFILE),
             icon: Icon(Icons.person_outline,

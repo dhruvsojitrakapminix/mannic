@@ -37,7 +37,7 @@ class PosterCard extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(R.md),
                   child: AspectRatio(
-                    aspectRatio: 2 / 3,
+                    aspectRatio: 2.3 / 3,
                     child: movie.posterPath == null
                         ? Container(color: AppColors.card2)
                         : CachedNetworkImage(
@@ -47,7 +47,7 @@ class PosterCard extends StatelessWidget {
                           Container(color: AppColors.card2),
                       errorWidget: (_, __, ___) => Container(
                         color: AppColors.card2,
-                        child: Icon(
+                        child: const Icon(
                           Icons.broken_image,
                           color: AppColors.textHint,
                         ),

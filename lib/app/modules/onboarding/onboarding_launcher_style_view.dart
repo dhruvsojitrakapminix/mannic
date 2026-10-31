@@ -14,7 +14,7 @@ class OnboardingLauncherStyleView extends StatelessWidget {
   const OnboardingLauncherStyleView({super.key});
 
   static const _gridOptions = [
-    {'id': 4, 'label': '4 × 5', 'desc': 'Bigger icons'},
+    {'id': 4, 'label': '4 × 5', 'desc': 'Bigger icon'},
     {'id': 5, 'label': '5 × 6', 'desc': 'Balanced (default)'},
     {'id': 6, 'label': '6 × 8', 'desc': 'Compact, more apps'},
   ];

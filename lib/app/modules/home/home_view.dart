@@ -12,6 +12,7 @@ import '../../theme/app_radius.dart';
 import '../../theme/app_spacing.dart';
 import '../../theme/app_text_styles.dart';
 import '../../widgets/app_header.dart';
+import '../../widgets/native_ad_widget.dart';
 import '../../widgets/poster_card.dart';
 import '../../widgets/section_title.dart';
 import 'home_controller.dart';
@@ -37,6 +38,7 @@ class HomeView extends StatelessWidget {
             child: ListView(
               children: [
                 const AppHeader(),
+                const NativeAdWidget(isSmall: false),
                 if (c.hero.isNotEmpty) _HeroCarousel(items: c.hero),
                 const _QuickActions(),
                 if (c.trending.isNotEmpty) ...[

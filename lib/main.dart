@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart'; // Required for MobileAds init
 
 import 'app/data/repositories/favorites_repository.dart';
 import 'app/data/services/ads_service.dart';
@@ -19,6 +19,7 @@ import 'app/routes/app_pages.dart';
 import 'app/routes/app_routes.dart';
 import 'app/theme/app_colors.dart';
 import 'app/theme/app_theme.dart';
+import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,30 +27,62 @@ Future<void> main() async {
   // ── Storage ────────────────────────────────
   await GetStorage.init();
 
-  // ── Firebase (comment out until firebase_options.dart is generated) ──
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
-  // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
-  // PlatformDispatcher.instance.onError = (err, stack) {
-  //   FirebaseCrashlytics.instance.recordError(err, stack, fatal: true);
-  //   return true;
-  // };
+  // ── Firebase ───────────────────────────────
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+  PlatformDispatcher.instance.onError = (err, stack) {
+    FirebaseCrashlytics.instance.recordError(err, stack, fatal: true);
+    return true;
+  };
 
-  // ── App services (non-blocking) ────────────
+  // ── Initialize Mobile Ads SDK (Required before AdsService init) ──
+  await MobileAds.instance.initialize();
+
+  // ── App services ───────────────────────────
   await AppConfigStore.instance.init();
   InstallSourceService.instance.init();
   CustomBannerService.instance.init();
   WatchHistory.instance.init();
   FavoritesRepo.i.init();
+
+  // Initialize AdsService (which will now load App Open & Interstitial ads)
   AdsService.instance.init();
+
   AppUpdateService.instance.checkOnce();
 
   runApp(const App());
 }
 
-class App extends StatelessWidget {
+// Changed to StatefulWidget to listen to lifecycle events
+class App extends StatefulWidget {
   const App({super.key});
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // Show App Open Ad when the app is resumed
+    if (state == AppLifecycleState.resumed) {
+      AdsService.instance.showAppOpenIfReady();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +93,7 @@ class App extends StatelessWidget {
         behavior: HitTestBehavior.translucent,
         onPointerUp: (_) => AdsService.instance.onUserTap(),
         child: GetMaterialApp(
-          title: 'BitTV',
+          title: 'NoveFlix – Movies, TV & Live',
           debugShowCheckedModeBanner: false,
           theme: AppTheme.dark,
           initialRoute: Routes.LAUNCHER,

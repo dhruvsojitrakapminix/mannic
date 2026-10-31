@@ -1,4 +1,4 @@
-package com.dhruv.bt_tv
+package com.nova.filx.movies.tv.as1
 
 import io.flutter.embedding.android.FlutterActivity
 

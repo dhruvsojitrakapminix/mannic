@@ -115,47 +115,52 @@ class _LauncherViewState extends State<LauncherView>
               opacity: _fade,
               child: ScaleTransition(
                 scale: _scale,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Container(
-                      width: 108.r,
-                      height: 108.r,
-                      decoration: BoxDecoration(
-                        gradient: const LinearGradient(
-                          colors: [AppColors.primary, AppColors.primaryDark],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                        borderRadius: BorderRadius.circular(26.r),
-                        boxShadow: [
-                          BoxShadow(
-                            color: AppColors.primary.withOpacity(0.45),
-                            blurRadius: 40,
-                            spreadRadius: 4,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 108.r,
+                        height: 108.r,
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [AppColors.primary, AppColors.primaryDark],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
                           ),
-                        ],
+                          borderRadius: BorderRadius.circular(26.r),
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppColors.primary.withOpacity(0.45),
+                              blurRadius: 40,
+                              spreadRadius: 4,
+                            ),
+                          ],
+                        ),
+                        child: Icon(
+                          Icons.play_arrow_rounded,
+                          color: Colors.white,
+                          size: 66.sp,
+                        ),
                       ),
-                      child: Icon(
-                        Icons.play_arrow_rounded,
-                        color: Colors.white,
-                        size: 66.sp,
+                      SizedBox(height: 24.h),
+                      Text(
+                        'NoveFlix – Movies, TV & Live',
+                        style: T.h1.copyWith(
+                          fontSize: 25.sp,
+                          letterSpacing: 1.2,
+                        ),
                       ),
-                    ),
-                    SizedBox(height: 24.h),
-                    Text(
-                      'BitTV',
-                      style: T.h1.copyWith(
-                        fontSize: 34.sp,
-                        letterSpacing: 1.2,
+                      SizedBox(height: 8.h),
+                      Text(
+                        'Movies • TV • Short Drama',
+                        style: T.small.copyWith(letterSpacing: 3),
                       ),
-                    ),
-                    SizedBox(height: 8.h),
-                    Text(
-                      'Movies • TV • Short Drama',
-                      style: T.small.copyWith(letterSpacing: 3),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

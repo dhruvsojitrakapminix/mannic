@@ -222,7 +222,7 @@ class MovieDetailView extends StatelessWidget {
         SizedBox(width: S.sm),
         _circleAction(
           icon: Icons.share_outlined,
-          onTap: () => Share.share('Check out "${m.t}" on BitTV!'),
+          onTap: () => Share.share('Check out "${m.t}" on NoveFlix – Movies, TV & Live!'),
         ),
       ],
     );

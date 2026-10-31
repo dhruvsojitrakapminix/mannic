@@ -1,6 +1,7 @@
 import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
+import 'package:flutter/foundation.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 // ─────────────────────────────────────────────
@@ -354,11 +355,12 @@ class AppConfig {
 //  Store (singleton)
 // ─────────────────────────────────────────────
 
-class AppConfigStore {
+
+class AppConfigStore extends GetxController {
   AppConfigStore._();
   static final AppConfigStore instance = AppConfigStore._();
 
-  static const _cacheKey = 'app_config_cache_v2';
+  static const _cacheKey = 'nove_flix_app';
   final _box = GetStorage();
 
   AppConfig _config = AppConfig.defaults();
@@ -370,24 +372,54 @@ class AppConfigStore {
     if (_initialized) return;
     _initialized = true;
 
-    // Load from cache first (instant boot)
+    // 1. Load from cache
     final raw = _box.read(_cacheKey);
-    debugPrint("=============>$raw");
+    debugPrint("=============> Cached Raw: $raw");
+
     if (raw != null) {
       try {
-        final m = Map<String, dynamic>.from(
-          jsonDecode(jsonEncode(raw)) as Map,
-        );
+        final Map<String, dynamic> m = Map<String, dynamic>.from(jsonDecode(raw) as Map);
         _config = AppConfig.fromJson(m);
-      } catch (_) {}
+      } catch (e) {
+        debugPrint("=============> Cache Parse Error: $e");
+      }
+    }
+
+    // 2. Fetch from Firebase
+    await _fetchRemoteConfig();
+  }
+
+  Future<void> _fetchRemoteConfig() async {
+    try {
+      final remoteConfig = FirebaseRemoteConfig.instance;
+
+      await remoteConfig.setConfigSettings(RemoteConfigSettings(
+        fetchTimeout: const Duration(minutes: 1),
+        minimumFetchInterval: kDebugMode ? Duration.zero : const Duration(hours: 1),
+      ));
+
+      // Fetch and activate
+      bool updated = await remoteConfig.fetchAndActivate();
+      debugPrint("=============> Firebase Fetch Updated: $updated");
+
+      if (updated) {
+        final String jsonString = remoteConfig.getString(_cacheKey);
+
+        if (jsonString.isNotEmpty) {
+          debugPrint("=============> Firebase Fetched: $jsonString");
+
+          // Save to local cache
+          await _box.write(_cacheKey, jsonString);
+
+          // Parse and update
+          final m = Map<String, dynamic>.from(jsonDecode(jsonString) as Map);
+          _config = AppConfig.fromJson(m);
+        } else {
+          debugPrint("=============> Firebase returned EMPTY string for key: $_cacheKey");
+        }
+      }
+    } catch (e) {
+      debugPrint("=============> Remote Config Error: $e");
     }
   }
-
-  /// Call this after fetching from your backend / Remote Config.
-  Future<void> apply(Map<String, dynamic> json) async {
-    _config = AppConfig.fromJson(json);
-    await _box.write(_cacheKey, json);
-  }
-
-  void overrideForTesting(AppConfig cfg) => _config = cfg;
 }

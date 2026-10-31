@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bit_tv/app/data/services/app_config.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
@@ -41,8 +42,7 @@ class _CustomAdWidgetState extends State<CustomAdWidget> {
   }
 
   Future<void> _load() async {
-    final cfg = AdsService.instance;
-    final unitId = cfg.bannerUnitId;
+    final unitId = AppConfigStore.instance.appConfig.admobAds.native.ids.first;
     if (unitId.isEmpty) {
       setState(() => _failed = true);
       return;

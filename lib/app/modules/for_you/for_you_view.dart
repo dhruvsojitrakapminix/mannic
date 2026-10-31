@@ -37,12 +37,14 @@ class ForYouView extends StatelessWidget {
           return CarouselSlider.builder(
             itemCount: c.items.length,
             options: CarouselOptions(
+              scrollDirection: Axis.vertical,
+              autoPlay: true,
               height: double.infinity,
               viewportFraction: 1.0,
               enableInfiniteScroll: false,
               onPageChanged: (i, _) => c.setIndex(i),
             ),
-            itemBuilder: (_, i, __) => _ForYouCard(movie: c.items[i]),
+            itemBuilder: (_, i, __) => _ForYouCard(movie: c.items[i], iCurrentCount: i+1, iTotalCount: c.items.length,),
           );
         }),
       ),
@@ -52,7 +54,9 @@ class ForYouView extends StatelessWidget {
 
 class _ForYouCard extends StatelessWidget {
   final Movie movie;
-  const _ForYouCard({required this.movie});
+  final int iTotalCount;
+  final int iCurrentCount;
+  const _ForYouCard({required this.movie, required this.iTotalCount, required this.iCurrentCount});
 
   void _openDetail() {
     if (movie.type == 'tv') {
@@ -108,8 +112,7 @@ class _ForYouCard extends StatelessWidget {
             children: [
               // Type badge
               Container(
-                padding: EdgeInsets.symmetric(
-                    horizontal: 10.w, vertical: 4.h),
+                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
                 decoration: BoxDecoration(
                   color: AppColors.primary,
                   borderRadius: BorderRadius.circular(R.sm),
@@ -133,8 +136,7 @@ class _ForYouCard extends StatelessWidget {
               // Meta
               Row(
                 children: [
-                  Icon(Icons.star_rounded,
-                      color: AppColors.star, size: 16.sp),
+                  Icon(Icons.star_rounded, color: AppColors.star, size: 16.sp),
                   SizedBox(width: 4.w),
                   Text(
                     movie.vote.toStringAsFixed(1),
@@ -164,54 +166,108 @@ class _ForYouCard extends StatelessWidget {
                 ),
               SizedBox(height: S.lg),
 
-              // Primary action
-              SizedBox(
-                width: double.infinity,
-                height: 50.h,
-                child: ElevatedButton.icon(
-                  onPressed: _openDetail,
-                  icon: const Icon(Icons.play_arrow_rounded),
-                  label: const Text('Watch Now'),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary,
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(R.pill),
+              // ── Bottom Row: Watch Now and Info ──
+              Row(
+                children: [
+                  // Watch Now Button (Expanded to take available space)
+                  Expanded(
+                    flex: 3,
+                    child: SizedBox(
+                      height: 50.h,
+                      child: ElevatedButton.icon(
+                        onPressed: _openDetail,
+                        icon: const Icon(Icons.play_arrow_rounded),
+                        label: const Text('Watch Now'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primary,
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(R.pill),
+                          ),
+                        ),
+                      ),
                     ),
+                  ),
+                  SizedBox(width: 12.w),
+                  // Info Button (Square/Circular shape)
+                  Expanded(
+                    flex: 1,
+                    child: SizedBox(
+                      height: 50.h,
+                      child: ElevatedButton(
+                        onPressed: _openDetail,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white.withOpacity(0.2),
+                          foregroundColor: Colors.white,
+                          padding: EdgeInsets.zero,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(R.pill),
+                          ),
+                        ),
+                        child: const Icon(Icons.info_outline),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+
+        Positioned(
+          left: 24.w,
+          right: 24.w,
+          top: 24.h,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // Left Side: Counter (Example: 10/list.length)
+              // Replace `10` with your actual current index variable (e.g., `currentIndex + 1`)
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.5), // Semi-transparent background
+                  borderRadius: BorderRadius.circular(R.sm), // Rounded borders
+                  border: Border.all(
+                    color: Colors.white.withOpacity(0.2), // Subtle border for depth
+                    width: 1,
+                  ),
+                ),
+                child: Text(
+                  "$iCurrentCount/$iTotalCount",
+                  style: T.title.copyWith(
+                    color: AppColors.textSub,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.sp,
                   ),
                 ),
               ),
-              SizedBox(height: S.md),
 
-              // Action row
+              // Right Side: Save and Share
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _action(
-                    icon: Icons.info_outline,
-                    label: 'Info',
-                    onTap: _openDetail,
-                  ),
                   Obx(() {
-                    final isFav =
-                    FavoritesRepo.i.isFavorite(movie.id);
-                    return _action(
-                      icon: isFav
-                          ? Icons.favorite
-                          : Icons.favorite_border,
-                      label: isFav ? 'Saved' : 'Save',
-                      tinted: isFav,
-                      onTap: () => FavoritesRepo.i.toggle(movie),
+                    final isFav = FavoritesRepo.i.isFavorite(movie.id);
+                    return IconButton(
+                      onPressed: () => FavoritesRepo.i.toggle(movie),
+                      icon: Icon(
+                        isFav ? Icons.favorite : Icons.favorite_border,
+                        color: isFav ? AppColors.primary : Colors.white,
+                        size: 35,
+                      ),
                     );
                   }),
-                  _action(
-                    icon: Icons.share_outlined,
-                    label: 'Share',
-                    onTap: () {
+                  IconButton(
+                    onPressed: () {
                       Share.share(
-                        'Check out "${movie.t}" on BitTV!',
+                        'Check out "${movie.t}" on NoveFlix – Movies, TV & Live!',
                       );
                     },
+                    icon: const Icon(
+                      Icons.share_outlined,
+                      color: Colors.white,
+                      size: 35,
+                    ),
                   ),
                 ],
               ),
