@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:get_storage/get_storage.dart';
 
 // ─────────────────────────────────────────────
@@ -371,6 +372,7 @@ class AppConfigStore {
 
     // Load from cache first (instant boot)
     final raw = _box.read(_cacheKey);
+    debugPrint("=============>$raw");
     if (raw != null) {
       try {
         final m = Map<String, dynamic>.from(

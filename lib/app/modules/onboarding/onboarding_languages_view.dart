@@ -47,6 +47,7 @@ class OnboardingLanguagesView extends StatelessWidget {
               SizedBox(height: 28.h),
               Expanded(
                 child: Obx(() {
+                  final selected = c.languages.toList();
                   return GridView.builder(
                     itemCount:
                     OnboardingController.availableLanguages.length,

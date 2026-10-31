@@ -46,6 +46,7 @@ class OnboardingMoodsView extends StatelessWidget {
               SizedBox(height: 28.h),
               Expanded(
                 child: Obx(() {
+                  final selected = c.moods.toList();
                   return ListView.separated(
                     itemCount: OnboardingController.availableMoods.length,
                     separatorBuilder: (_, __) => SizedBox(height: 10.h),

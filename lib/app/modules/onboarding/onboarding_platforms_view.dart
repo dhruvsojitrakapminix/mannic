@@ -47,6 +47,7 @@ class OnboardingPlatformsView extends StatelessWidget {
               SizedBox(height: 28.h),
               Expanded(
                 child: Obx(() {
+                  c.platforms.toList();
                   return GridView.builder(
                     itemCount:
                     OnboardingController.availablePlatforms.length,

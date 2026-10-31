@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1069185665644",
+    "project_id": "new-movie-app-46f46",
+    "storage_bucket": "new-movie-app-46f46.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1069185665644:android:38d6f91f797a3bdf686649",
+        "android_client_info": {
+          "package_name": "com.dhruv.bt_tv"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh26fQ2eS4myn0IiMvka4eMfdeP7w1dSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
