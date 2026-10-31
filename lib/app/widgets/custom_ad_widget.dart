@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:bit_tv/app/data/services/app_config.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../data/services/ads_service.dart';
+import '../data/services/app_config.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_spacing.dart';
 
