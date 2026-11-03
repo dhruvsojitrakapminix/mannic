@@ -51,17 +51,17 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCh26fQ2eS4myn0IiMvka4eMfdeP7w1dSo',
-    appId: '1:1069185665644:android:9e15cc084ddd867f686649',
+    appId: '1:1069185665644:android:85b042edd66d9035686649',
     messagingSenderId: '1069185665644',
     projectId: 'new-movie-app-46f46',
     storageBucket: 'new-movie-app-46f46.firebasestorage.app',
   );
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyANeEu6giowOGMJsKi8rdeDba064FXP4dA',
-    appId: '1:1069185665644:ios:433f8dbccd3ea3bd686649',
+    appId: '1:1069185665644:ios:c370040726d92f76686649',
     messagingSenderId: '1069185665644',
     projectId: 'new-movie-app-46f46',
     storageBucket: 'new-movie-app-46f46.firebasestorage.app',
-    iosBundleId: 'com.nova.filx.movies.tv.as1',
+    iosBundleId: 'com.supertv.app.as2',
   );
 }

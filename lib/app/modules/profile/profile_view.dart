@@ -56,7 +56,7 @@ class ProfileView extends StatelessWidget {
             SizedBox(height: S.xs),
             Center(
               child: Text(
-                'guest@NoveFlix – Movies, TV & Live.app',
+                'guest@Super Tv.app',
                 style: T.small.copyWith(color: AppColors.textHint),
               ),
             ),
@@ -124,8 +124,8 @@ class ProfileView extends StatelessWidget {
                 final storeUrl = Platform.isAndroid
                     ? cfg.androidStoreUrl
                     : cfg.appStoreUrl;
-                final url = storeUrl.isNotEmpty ? storeUrl : 'https://NoveFlix – Movies, TV & Live.app';
-                Share.share('Watch movies & shows on NoveFlix – Movies, TV & Live — $url');
+                final url = storeUrl.isNotEmpty ? storeUrl : 'https://Super Tv.app';
+                Share.share('Watch movies & shows on Super Tv — $url');
               },
             ),
             _Tile(
@@ -149,7 +149,7 @@ class ProfileView extends StatelessWidget {
             SizedBox(height: S.xxl),
             Center(
               child: Text(
-                'NoveFlix – Movies, TV & Live v1.0.0',
+                'Super Tv v1.0.0',
                 style: T.small.copyWith(color: AppColors.textHint),
               ),
             ),

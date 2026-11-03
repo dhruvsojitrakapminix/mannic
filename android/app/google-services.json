@@ -7,9 +7,85 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:1069185665644:android:61381a61c5a2fc7a686649",
+        "android_client_info": {
+          "package_name": "com.latinoflex.a1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh26fQ2eS4myn0IiMvka4eMfdeP7w1dSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:1069185665644:android:9e15cc084ddd867f686649",
         "android_client_info": {
           "package_name": "com.nova.filx.movies.tv.as1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh26fQ2eS4myn0IiMvka4eMfdeP7w1dSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1069185665644:android:5869359f1df0459a686649",
+        "android_client_info": {
+          "package_name": "com.rbt.movies.show.as2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh26fQ2eS4myn0IiMvka4eMfdeP7w1dSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1069185665644:android:85b042edd66d9035686649",
+        "android_client_info": {
+          "package_name": "com.supertv.app.as2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh26fQ2eS4myn0IiMvka4eMfdeP7w1dSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1069185665644:android:13896d9514ae5b8d686649",
+        "android_client_info": {
+          "package_name": "com.vedooflex.a1"
         }
       },
       "oauth_client": [],

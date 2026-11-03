@@ -33,7 +33,7 @@ class AppHeader extends StatelessWidget {
             ),
           ),
           SizedBox(width: S.sm),
-          Text('NoveFlix – Movies, TV', style: T.h2),
+          Text('Super Tv', style: T.h2),
           const Spacer(),
           IconButton(
             onPressed: () => Get.toNamed(Routes.FAVORITES),

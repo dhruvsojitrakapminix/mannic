@@ -148,7 +148,8 @@ class _LauncherViewState extends State<LauncherView>
                       ),
                       SizedBox(height: 24.h),
                       Text(
-                        'NoveFlix – Movies, TV & Live',
+                        'Super Tv',
+                        textAlign: TextAlign.center,
                         style: T.h1.copyWith(
                           fontSize: 25.sp,
                           letterSpacing: 1.2,

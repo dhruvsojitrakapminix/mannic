@@ -73,7 +73,7 @@ class AppUpdateService {
           title: Text(cfg.updateTitle, style: T.h3),
           content: Text(
             message.isEmpty
-                ? 'A newer version of NoveFlix – Movies, TV & Live is available. Please update to continue.'
+                ? 'A newer version of Super Tv is available. Please update to continue.'
                 : message,
             style: T.body,
           ),

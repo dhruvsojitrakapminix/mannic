@@ -1,4 +1,4 @@
-package com.nova.filx.movies.tv.as1
+package com.supertv.app.as2
 
 import io.flutter.embedding.android.FlutterActivity
 

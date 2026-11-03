@@ -17,7 +17,6 @@ import 'app/data/services/install_source_service.dart';
 import 'app/data/services/watch_history.dart';
 import 'app/routes/app_pages.dart';
 import 'app/routes/app_routes.dart';
-import 'app/theme/app_colors.dart';
 import 'app/theme/app_theme.dart';
 import 'firebase_options.dart';
 
@@ -93,7 +92,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
         behavior: HitTestBehavior.translucent,
         onPointerUp: (_) => AdsService.instance.onUserTap(),
         child: GetMaterialApp(
-          title: 'NoveFlix – Movies, TV & Live',
+          title: 'Super Tv',
           debugShowCheckedModeBanner: false,
           theme: AppTheme.dark,
           initialRoute: Routes.LAUNCHER,

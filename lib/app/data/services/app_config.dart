@@ -360,7 +360,7 @@ class AppConfigStore extends GetxController {
   AppConfigStore._();
   static final AppConfigStore instance = AppConfigStore._();
 
-  static const _cacheKey = 'nove_flix_app';
+  static const _cacheKey = 'super_tv_app';
   final _box = GetStorage();
 
   AppConfig _config = AppConfig.defaults();

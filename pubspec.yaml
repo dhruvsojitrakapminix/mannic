@@ -1,7 +1,7 @@
-name: bit_tv
-description: NoveFlix – Movies, TV & Live — Movies, TV Shows & Short Drama.
+name: super_tv
+description: Super Tv
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
