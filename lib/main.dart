@@ -92,7 +92,7 @@ class _AppState extends State<App> with WidgetsBindingObserver {
         behavior: HitTestBehavior.translucent,
         onPointerUp: (_) => AdsService.instance.onUserTap(),
         child: GetMaterialApp(
-          title: 'Super Tv',
+          title: 'Mannic: Movie Tv Shows',
           debugShowCheckedModeBanner: false,
           theme: AppTheme.dark,
           initialRoute: Routes.LAUNCHER,

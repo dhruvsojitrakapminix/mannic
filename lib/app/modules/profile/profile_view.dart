@@ -56,7 +56,7 @@ class ProfileView extends StatelessWidget {
             SizedBox(height: S.xs),
             Center(
               child: Text(
-                'guest@Super Tv.app',
+                'guest@Mannic: Movie Tv Shows.app',
                 style: T.small.copyWith(color: AppColors.textHint),
               ),
             ),
@@ -124,8 +124,8 @@ class ProfileView extends StatelessWidget {
                 final storeUrl = Platform.isAndroid
                     ? cfg.androidStoreUrl
                     : cfg.appStoreUrl;
-                final url = storeUrl.isNotEmpty ? storeUrl : 'https://Super Tv.app';
-                Share.share('Watch movies & shows on Super Tv — $url');
+                final url = storeUrl.isNotEmpty ? storeUrl : 'https://Mannic: Movie Tv Shows.app';
+                Share.share('Watch movies & shows on Mannic: Movie Tv Shows — $url');
               },
             ),
             _Tile(
@@ -149,7 +149,7 @@ class ProfileView extends StatelessWidget {
             SizedBox(height: S.xxl),
             Center(
               child: Text(
-                'Super Tv v1.0.0',
+                'Mannic: Movie Tv Shows v1.0.0',
                 style: T.small.copyWith(color: AppColors.textHint),
               ),
             ),

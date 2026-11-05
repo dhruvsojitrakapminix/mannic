@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "1069185665644",
-    "project_id": "new-movie-app-46f46",
-    "storage_bucket": "new-movie-app-46f46.firebasestorage.app"
+    "project_number": "852255532879",
+    "project_id": "new-movie-app-2",
+    "storage_bucket": "new-movie-app-2.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1069185665644:android:61381a61c5a2fc7a686649",
+        "mobilesdk_app_id": "1:852255532879:android:e34b4668c9f3596ae7c73a",
         "android_client_info": {
-          "package_name": "com.latinoflex.a1"
+          "package_name": "com.all.movie.box.drama.as1"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCh26fQ2eS4myn0IiMvka4eMfdeP7w1dSo"
+          "current_key": "AIzaSyBPdJj-mmKl2LTbZqJKvJWbA3WtVxzZVMs"
         }
       ],
       "services": {
@@ -26,15 +26,15 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1069185665644:android:9e15cc084ddd867f686649",
+        "mobilesdk_app_id": "1:852255532879:android:d8514eceda2c8aa4e7c73a",
         "android_client_info": {
-          "package_name": "com.nova.filx.movies.tv.as1"
+          "package_name": "com.anime.flex.a12"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCh26fQ2eS4myn0IiMvka4eMfdeP7w1dSo"
+          "current_key": "AIzaSyBPdJj-mmKl2LTbZqJKvJWbA3WtVxzZVMs"
         }
       ],
       "services": {
@@ -45,15 +45,15 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1069185665644:android:5869359f1df0459a686649",
+        "mobilesdk_app_id": "1:852255532879:android:8ba39845cfe8a85ae7c73a",
         "android_client_info": {
-          "package_name": "com.rbt.movies.show.as2"
+          "package_name": "com.blast.ultra.movie.as4"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCh26fQ2eS4myn0IiMvka4eMfdeP7w1dSo"
+          "current_key": "AIzaSyBPdJj-mmKl2LTbZqJKvJWbA3WtVxzZVMs"
         }
       ],
       "services": {
@@ -64,15 +64,15 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1069185665644:android:85b042edd66d9035686649",
+        "mobilesdk_app_id": "1:852255532879:android:f5ced497280d3e41e7c73a",
         "android_client_info": {
-          "package_name": "com.supertv.app.as2"
+          "package_name": "com.castleflex.cin.a12"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCh26fQ2eS4myn0IiMvka4eMfdeP7w1dSo"
+          "current_key": "AIzaSyBPdJj-mmKl2LTbZqJKvJWbA3WtVxzZVMs"
         }
       ],
       "services": {
@@ -83,15 +83,186 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1069185665644:android:13896d9514ae5b8d686649",
+        "mobilesdk_app_id": "1:852255532879:android:6f039d51ef71fae5e7c73a",
         "android_client_info": {
-          "package_name": "com.vedooflex.a1"
+          "package_name": "com.cinejoy.flex.C12"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCh26fQ2eS4myn0IiMvka4eMfdeP7w1dSo"
+          "current_key": "AIzaSyBPdJj-mmKl2LTbZqJKvJWbA3WtVxzZVMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852255532879:android:3b6a85acaa64c533e7c73a",
+        "android_client_info": {
+          "package_name": "com.donghua.flex.d12"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPdJj-mmKl2LTbZqJKvJWbA3WtVxzZVMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852255532879:android:7d2a698405d8d19de7c73a",
+        "android_client_info": {
+          "package_name": "com.hdobox.flex.hd12"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPdJj-mmKl2LTbZqJKvJWbA3WtVxzZVMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852255532879:android:815dc17bfeaa0ff2e7c73a",
+        "android_client_info": {
+          "package_name": "com.kiss.tx.asian.drama.as1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPdJj-mmKl2LTbZqJKvJWbA3WtVxzZVMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852255532879:android:a4df799059c6118be7c73a",
+        "android_client_info": {
+          "package_name": "com.kuching.flex.k13"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPdJj-mmKl2LTbZqJKvJWbA3WtVxzZVMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852255532879:android:c7df5c293df1011de7c73a",
+        "android_client_info": {
+          "package_name": "com.mannic.flex.m12"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPdJj-mmKl2LTbZqJKvJWbA3WtVxzZVMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852255532879:android:b61aa887fbedcf37e7c73a",
+        "android_client_info": {
+          "package_name": "com.teatv.flex.T12"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPdJj-mmKl2LTbZqJKvJWbA3WtVxzZVMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852255532879:android:4dc6b6bb4c424d3ce7c73a",
+        "android_client_info": {
+          "package_name": "com.tiku.flex.T12"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPdJj-mmKl2LTbZqJKvJWbA3WtVxzZVMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852255532879:android:8dc3350268e9bc30e7c73a",
+        "android_client_info": {
+          "package_name": "com.vidbox.flex.V12"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPdJj-mmKl2LTbZqJKvJWbA3WtVxzZVMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852255532879:android:243788b72e6e8de4e7c73a",
+        "android_client_info": {
+          "package_name": "com.zuper.flex.y12"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPdJj-mmKl2LTbZqJKvJWbA3WtVxzZVMs"
         }
       ],
       "services": {

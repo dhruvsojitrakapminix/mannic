@@ -148,7 +148,7 @@ class _LauncherViewState extends State<LauncherView>
                       ),
                       SizedBox(height: 24.h),
                       Text(
-                        'Super Tv',
+                        'Mannic: Movie Tv Shows',
                         textAlign: TextAlign.center,
                         style: T.h1.copyWith(
                           fontSize: 25.sp,

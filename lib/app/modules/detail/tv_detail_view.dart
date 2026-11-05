@@ -258,7 +258,7 @@ class TvDetailView extends StatelessWidget {
         SizedBox(width: S.sm),
         _circleAction(
           icon: Icons.share_outlined,
-          onTap: () => Share.share('Check out "${t.t}" on Super Tv!'),
+          onTap: () => Share.share('Check out "${t.t}" on Mannic: Movie Tv Shows!'),
         ),
       ],
     );

@@ -50,18 +50,18 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCh26fQ2eS4myn0IiMvka4eMfdeP7w1dSo',
-    appId: '1:1069185665644:android:85b042edd66d9035686649',
-    messagingSenderId: '1069185665644',
-    projectId: 'new-movie-app-46f46',
-    storageBucket: 'new-movie-app-46f46.firebasestorage.app',
+    apiKey: 'AIzaSyBPdJj-mmKl2LTbZqJKvJWbA3WtVxzZVMs',
+    appId: '1:852255532879:android:c7df5c293df1011de7c73a',
+    messagingSenderId: '852255532879',
+    projectId: 'new-movie-app-2',
+    storageBucket: 'new-movie-app-2.firebasestorage.app',
   );
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyANeEu6giowOGMJsKi8rdeDba064FXP4dA',
-    appId: '1:1069185665644:ios:c370040726d92f76686649',
-    messagingSenderId: '1069185665644',
-    projectId: 'new-movie-app-46f46',
-    storageBucket: 'new-movie-app-46f46.firebasestorage.app',
-    iosBundleId: 'com.supertv.app.as2',
+    apiKey: 'AIzaSyCsjWEJ3zmdOy2zlaEPyrOb0tikL_2qo9E',
+    appId: '1:852255532879:ios:6d7c71df1e5cd8a9e7c73a',
+    messagingSenderId: '852255532879',
+    projectId: 'new-movie-app-2',
+    storageBucket: 'new-movie-app-2.firebasestorage.app',
+    iosBundleId: 'com.mannic.flex.m12',
   );
 }

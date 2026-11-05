@@ -260,7 +260,7 @@ class _ForYouCard extends StatelessWidget {
                   IconButton(
                     onPressed: () {
                       Share.share(
-                        'Check out "${movie.t}" on Super Tv!',
+                        'Check out "${movie.t}" on Mannic: Movie Tv Shows!',
                       );
                     },
                     icon: const Icon(
